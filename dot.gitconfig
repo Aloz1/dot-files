@@ -1,0 +1,6 @@
+[user]
+	name = Aloz1
+	email = kno0001@gmail.com
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
