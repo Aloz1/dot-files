@@ -21,6 +21,10 @@ set number relativenumber
 set shiftwidth=4
 set tabstop=4
 set expandtab
+set colorcolumn=100
+
+" Disable python recommended style
+let g:python_recommended_style=0
 
 " Autocommands
 augroup numbertoggle
@@ -33,6 +37,7 @@ augroup filetypesettings
     autocmd!
     autocmd BufReadPost * if match(expand('%:p'), '/srcpkgs/[^/]\+/template') != -1 | setl noet | endif
     autocmd FileType ruby setl et sw=2 ts=2
+    autocmd FileType python setl noet sw=4 ts=4
 augroup END
 
 """" Vundle Stuff """"

@@ -2,28 +2,32 @@
 
 ### Start dbus ###
 if test -z "$DBUS_SESSION_BUS_ADDRESS"; then
-    eval `dbus-launch --sh-syntax --exit-with-session`
+    eval $(dbus-launch --sh-syntax --exit-with-x11)
+    export DBUS_SESSION_BUS_PID
 fi
 
+export SXHKD_SHELL=/bin/sh
 
 ### Start programs ###
 sxhkd &
 compton &
 $HOME/.config/polybar/launch.sh &
 #yabar &
-#tint2 &
 start-pulseaudio-x11
-#stalonetray -c $HOME/.config/stalonetrayrc &
 nm-applet &
 #pa-applet &
 #yabar
 
-light-locker \
-    --lock-on-suspend \
-    --lock-on-lid \
-    --idle-hint \
-    --lock-after-screensaver=5 \
-    --idle-hint &
+TEXT_COLOR=ffffffff
+xss-lock -- i3lock \
+	--blur=10 \
+	--indicator --clock \
+	--verifcolor=$TEXT_COLOR \
+	--wrongcolor=$TEXT_COLOR \
+	--layoutcolor=$TEXT_COLOR \
+	--datecolor=$TEXT_COLOR \
+    --timecolor=$TEXT_COLOR &
+
 
 ### Enable natural scrolling ###
 
@@ -47,9 +51,24 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config focus_follows_pointer true
 
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+bspc config merge_overlapping_monitors true
+
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+bspc rule -a zathura state=tiled
 
+# Because Libreoffice is horrible
+bspc rule -a libreoffice state=tiled
+bspc rule -a Soffice state=tiled
+bspc rule -a libreoffice-base state=tiled
+bspc rule -a libreoffice-basic state=tiled
+bspc rule -a libreoffice-calc state=tiled
+bspc rule -a libreoffice-draw state=tiled
+bspc rule -a libreoffice-impress state=tiled
+bspc rule -a libreoffice-math state=tiled
+bspc rule -a libreoffice-writer state=tiled

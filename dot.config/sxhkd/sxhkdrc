@@ -32,6 +32,14 @@ XF86AudioMute
     ponymix toggle
 #	amixer -q set Master toggle
 
+# Screenshot
+super + Print
+    maim -sul -b 4 -c 0,1,1,0.3 "$HOME/Pictures/Screenshot $(date '+%F %T').png"
+
+# To cycle through monitors on my Dell laptop (and possibly other laptops too) it
+# is necessary to look out for "super + p", which is the key combo emitted by the
+# <switch video mode> button.
+
 #
 # bspwm hotkeys
 #
@@ -77,11 +85,11 @@ super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
-super + {p,b,comma,period}
+super + alt + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node in the current desktop
-super + {_,shift + }c
+super + alt + {_,shift + }c
 	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
@@ -127,6 +135,10 @@ super + ctrl + shift + space
 #
 # move/resize
 #
+
+# rotate parent of current node
+super + alt + {_,shift} + r
+    bspc node -R {90,270}
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
