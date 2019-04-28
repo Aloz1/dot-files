@@ -15,6 +15,7 @@ $HOME/.config/polybar/launch.sh &
 #yabar &
 start-pulseaudio-x11
 nm-applet &
+/usr/libexec/xfce-polkit &
 #pa-applet &
 #yabar
 
