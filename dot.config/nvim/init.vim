@@ -14,8 +14,9 @@ if &shell =~# 'fish$'
     command! -nargs=? Terminal call OpenTerm(<q-args>)
 endif
 
-" Turn on relative numbering
+" Turn on relative numbering and syntax highlighting
 set number relativenumber
+syntax on
 
 " Tab settings (maybe this should be different, depending on file type???)
 set shiftwidth=4
@@ -54,6 +55,7 @@ Plugin 'VundleVim/Vundle.vim'
 " All other plugins
 Plugin 'hashivim/vim-vagrant'
 Plugin 'dag/vim-fish'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 
 call vundle#end()
 filetype plugin indent on
