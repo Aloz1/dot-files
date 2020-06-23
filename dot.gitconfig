@@ -2,5 +2,7 @@
 	name = Aloz1
 	email = kno0001@gmail.com
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
+	tool = meld
+    conflictstyle = merge
+[pull]
+	rebase = true
