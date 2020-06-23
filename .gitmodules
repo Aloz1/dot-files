@@ -1,4 +1,0 @@
-[submodule "dot.config/nvim/bundle/Vundle.vim"]
-	path = dot.config/nvim/bundle/Vundle.vim
-	url = https://github.com/VundleVim/Vundle.vim
-	branch = master

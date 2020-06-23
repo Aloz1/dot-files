@@ -14,6 +14,26 @@ if &shell =~# 'fish$'
     command! -nargs=? Terminal call OpenTerm(<q-args>)
 endif
 
+"""" vim-plug Stuff """"
+call plug#begin('~/.local/share/nvim/plugged')
+
+" To update vim-plug itself, you need to use PlugUpgrade
+
+Plug 'ayu-theme/ayu-vim'
+Plug 'hashivim/vim-vagrant'
+Plug 'dag/vim-fish'
+Plug 'lervag/vimtex'
+Plug 'aklt/plantuml-syntax'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tmux-plugins/vim-tmux-focus-events'
+
+call plug#end()
+
+"""" General options """"
+
+" Spell checking language
+set spelllang=en_au
+
 " Turn on relative numbering and syntax highlighting
 set number relativenumber
 syntax on
@@ -37,25 +57,21 @@ augroup END
 augroup filetypesettings
     autocmd!
     autocmd BufReadPost * if match(expand('%:p'), '/srcpkgs/[^/]\+/template') != -1 | setl noet | endif
-    autocmd FileType ruby setl et sw=2 ts=2
+    autocmd FileType markdown,tex,text setl linebreak breakindent
+    autocmd FileType 64tass,asm setl noet sw=8 ts=8
     autocmd FileType python setl noet sw=4 ts=4
+    autocmd FileType ruby setl et sw=2 ts=2
+    autocmd FileType vhdl setl et sw=3 ts=3
 augroup END
 
-"""" Vundle Stuff """"
-set nocompatible
-filetype off
+let tass64_w65c02=1
 
-" Setup vundle
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')
+"""" Terminal colour theme """"
+set termguicolors       " Enables 'true colour' support.
+let ayucolor="dark"   " One of 'light', 'mirage' or 'dark'
+colorscheme ayu
 
-" Let vundle manage vundle
-Plugin 'VundleVim/Vundle.vim'
+"""" Key mappings """"
+noremap <Up> <C-Y>
+noremap <Down> <C-E>
 
-" All other plugins
-Plugin 'hashivim/vim-vagrant'
-Plugin 'dag/vim-fish'
-Plugin 'tmux-plugins/vim-tmux-focus-events'
-
-call vundle#end()
-filetype plugin indent on
