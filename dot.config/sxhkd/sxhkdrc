@@ -10,6 +10,10 @@ super + Return
 super + r
 	rofi -show drun
 
+super + l
+    sh -c 'sleep 1; xset dpms force off'
+    #loginctl lock-session
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -31,6 +35,21 @@ XF86AudioLowerVolume
 XF86AudioMute
     ponymix toggle
 #	amixer -q set Master toggle
+
+XF86AudioPlay
+    playerctl play-pause
+
+XF86AudioNext
+    playerctl next
+
+XF86AudioPrev
+    playerctl previous
+
+shift + XF86AudioNext
+    playerctl position +5
+
+shift + XF86AudioPrev
+    playerctl position -5
 
 # Screenshot
 super + Print
