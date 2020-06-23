@@ -8,16 +8,18 @@ fi
 
 export SXHKD_SHELL=/bin/sh
 
+### Start gnome-keyring-daemon ###
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
+
 ### Start programs ###
 sxhkd &
 compton &
+dunst &
 $HOME/.config/polybar/launch.sh &
-#yabar &
 start-pulseaudio-x11
 nm-applet &
 /usr/libexec/xfce-polkit &
-#pa-applet &
-#yabar
 
 TEXT_COLOR=ffffffff
 xss-lock -- i3lock \
