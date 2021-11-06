@@ -14,15 +14,18 @@ export SSH_AUTH_SOCK
 
 ### Start programs ###
 sxhkd &
+pipewire &
+pipewire-pulse &
+pipewire-media-server &
 compton &
 dunst &
 $HOME/.config/polybar/launch.sh &
-start-pulseaudio-x11
 nm-applet &
 /usr/libexec/xfce-polkit &
 
 TEXT_COLOR=ffffffff
-xss-lock -- i3lock \
+xss-lock --transfer-sleep-lock -- i3lock \
+    --no-fork \
 	--blur=10 \
 	--indicator --clock \
 	--verifcolor=$TEXT_COLOR \
@@ -31,6 +34,7 @@ xss-lock -- i3lock \
 	--datecolor=$TEXT_COLOR \
     --timecolor=$TEXT_COLOR &
 
+ibus-daemon -drx
 
 ### Enable natural scrolling ###
 

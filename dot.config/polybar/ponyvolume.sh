@@ -2,16 +2,16 @@
 
 inc=2
 
-function getVol() {
+getVol() {
     echo $(ponymix get-volume)
 }
 
-function isMuted() {
+isMuted() {
     ponymix is-muted
     echo $?
 }
 
-function listen {
+listen() {
     firstrun=0
 
     pactl subscribe 2>/dev/null | {
@@ -31,7 +31,7 @@ function listen {
     }
 }
 
-function output() {
+output() {
     vol=$(getVol)
     mute=$(isMuted)
 

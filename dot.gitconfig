@@ -6,3 +6,7 @@
     conflictstyle = merge
 [pull]
 	rebase = true
+[alias]
+	graph = log --graph --oneline --all --abbrev-commit
+[init]
+	defaultBranch = master

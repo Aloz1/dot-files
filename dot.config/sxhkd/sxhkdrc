@@ -10,7 +10,7 @@ super + Return
 super + r
 	rofi -show drun
 
-super + l
+ctrl + l
     sh -c 'sleep 1; xset dpms force off'
     #loginctl lock-session
 

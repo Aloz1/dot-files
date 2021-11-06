@@ -68,19 +68,20 @@ scroll-down = bspwm-deskprev
 [module/bspwm]
 type = internal/bspwm
 
-label-focused = %index%
+label-monitor = %name%
+label-focused = %name%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 1
 
-label-occupied = %index%
+label-occupied = %name%
 label-occupied-padding = 1
 
-label-urgent = %index%!
+label-urgent = %name%!
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
-label-empty = %index%
+label-empty = %name%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 1
 
@@ -109,6 +110,8 @@ type = internal/xbacklight
 
 format = <label> <bar>
 label = BL
+
+card = intel_backlight
 
 bar-width = 10
 bar-indicator = |
