@@ -26,6 +26,7 @@ Plug 'lervag/vimtex'
 Plug 'aklt/plantuml-syntax'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'udalov/kotlin-vim'
 
 call plug#end()
 
@@ -62,6 +63,7 @@ augroup filetypesettings
     autocmd FileType python setl noet sw=4 ts=4
     autocmd FileType ruby setl et sw=2 ts=2
     autocmd FileType vhdl setl et sw=3 ts=3
+    autocmd FileType yaml setl et sw=2 ts=2
 augroup END
 
 let tass64_w65c02=1
@@ -74,4 +76,5 @@ colorscheme ayu
 """" Key mappings """"
 noremap <Up> <C-Y>
 noremap <Down> <C-E>
-
+map  <C-K> :pyf /usr/share/clang/clang-format.py<cr>
+imap <C-K> <c-o>:pyf /usr/share/clang/clang-format.py<cr>
