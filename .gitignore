@@ -1,4 +1,5 @@
 dot.config/nvim/.netrwhist
+dot.config/nvim/coc-settings.json
 dot.config/nvim/bundle/*
 **/xfce4/desktop
 **/xfce4/terminal
