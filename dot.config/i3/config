@@ -19,22 +19,29 @@ font pango:monospace 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
+# Pipewire startup (audio)
+exec --no-startup-id pipewire
+exec --no-startup-id pipewire-pulse
+exec --no-startup-id pipewire-media-session
+
+# Start compositor
+exec --no-startup-id picom
+
+# Start ibus (for input)
+exec --no-startup-id ibus-daemon -x -n i3wm
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
+set $TEXT_COLOR ffffffff
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock \
     --nofork \
 	--blur=10 \
 	--indicator --clock \
-	--verifcolor=$TEXT_COLOR \
-	--wrongcolor=$TEXT_COLOR \
-	--layoutcolor=$TEXT_COLOR \
-	--datecolor=$TEXT_COLOR \
-    --timecolor=$TEXT_COLOR &
-
-exec --no-startup-id compton
+	--verif-color=$TEXT_COLOR \
+	--wrong-color=$TEXT_COLOR \
+	--layout-color=$TEXT_COLOR \
+	--date-color=$TEXT_COLOR \
+    --time-color=$TEXT_COLOR &
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -78,6 +85,9 @@ bindsym $mod+r exec --no-startup-id rofi -show drun
 
 # screenshot
 bindsym $mod+Print exec --no-startup-id "maim -sul -c 0,1,1,0.3 \\"$HOME/Pictures/Screenshot $(date '+%F %T').png\\""
+
+# lockscreen
+bindsym Ctrl+l exec --no-startup-id xset dpms force off
 
 # change focus
 bindsym $mod+h focus left
