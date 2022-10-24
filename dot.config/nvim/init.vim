@@ -24,6 +24,7 @@ Plug 'hashivim/vim-vagrant'
 Plug 'dag/vim-fish'
 Plug 'lervag/vimtex'
 Plug 'aklt/plantuml-syntax'
+Plug 'neovimhaskell/haskell-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'udalov/kotlin-vim'
@@ -60,9 +61,9 @@ augroup filetypesettings
     autocmd BufReadPost * if match(expand('%:p'), '/srcpkgs/[^/]\+/template') != -1 | setl noet | endif
     autocmd FileType markdown,tex,text setl linebreak breakindent
     autocmd FileType 64tass,asm setl noet sw=8 ts=8
-    autocmd FileType python setl noet sw=4 ts=4
+    autocmd FileType python setl et sw=4 ts=4
     autocmd FileType ruby setl et sw=2 ts=2
-    autocmd FileType vhdl setl et sw=3 ts=3
+    autocmd FileType vhdl setl et sw=4 ts=4
     autocmd FileType yaml setl et sw=2 ts=2
 augroup END
 
