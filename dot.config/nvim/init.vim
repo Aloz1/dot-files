@@ -28,6 +28,7 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'udalov/kotlin-vim'
+Plug 'perost/modelica-vim'
 
 call plug#end()
 
@@ -59,6 +60,8 @@ augroup END
 augroup filetypesettings
     autocmd!
     autocmd BufReadPost * if match(expand('%:p'), '/srcpkgs/[^/]\+/template') != -1 | setl noet | endif
+    autocmd BufRead,BufNewFile *.mo set filetype=modelica
+    autocmd BufRead,BufNewFile *.tpl set filetype=susan
     autocmd FileType markdown,tex,text setl linebreak breakindent
     autocmd FileType 64tass,asm setl noet sw=8 ts=8
     autocmd FileType python setl et sw=4 ts=4
