@@ -66,8 +66,10 @@ augroup filetypesettings
     autocmd FileType 64tass,asm setl noet sw=8 ts=8
     autocmd FileType python setl et sw=4 ts=4
     autocmd FileType ruby setl et sw=2 ts=2
-    autocmd FileType vhdl setl et sw=4 ts=4
     autocmd FileType yaml setl et sw=2 ts=2
+    autocmd FileType vhdl setl et sw=2 ts=2
+    autocmd FileType verilog setl et sw=2 ts=2
+    autocmd FileType systemverilog setl et sw=2 ts=2
 augroup END
 
 let tass64_w65c02=1
@@ -82,3 +84,7 @@ noremap <Up> <C-Y>
 noremap <Down> <C-E>
 map  <C-K> :pyf /usr/share/clang/clang-format.py<cr>
 imap <C-K> <c-o>:pyf /usr/share/clang/clang-format.py<cr>
+
+"""" COC Configuration """"
+runtime coc_config.vim
+
