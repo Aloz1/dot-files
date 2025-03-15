@@ -21,6 +21,7 @@ set $menu rofi -show drun
 ### Startup Applications
 #
 
+exec dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 exec pipewire
 exec pipewire-pulse
 exec wireplumber
